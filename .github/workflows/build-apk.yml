@@ -12,10 +12,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - uses: actions/setup-java@v4
+    - name: Setup Java
+      uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
-        java-version: '8'
+        java-version: '11'
 
     - name: Install Android SDK
       run: |
@@ -23,7 +24,6 @@ jobs:
         mkdir -p $HOME/Android/Sdk/cmdline-tools
         unzip -q /tmp/cmdline.zip -d $HOME/Android/Sdk/cmdline-tools
         rm /tmp/cmdline.zip
-        # cmdline.zip extracts to cmdline-tools/ subfolder
         mkdir -p $HOME/Android/Sdk/cmdline-tools/latest
         cp -r $HOME/Android/Sdk/cmdline-tools/cmdline-tools/* $HOME/Android/Sdk/cmdline-tools/latest/
         yes | $HOME/Android/Sdk/cmdline-tools/latest/bin/sdkmanager --licenses
@@ -35,7 +35,7 @@ jobs:
       run: echo "sdk.dir=$ANDROID_HOME" > app/local.properties
 
     - name: Build Debug APK
-      run: ./gradlew assembleDebug --no-daemon -x lint
+      run: ./gradlew assembleDebug --no-daemon -x lint --stacktrace
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
