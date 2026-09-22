@@ -19,14 +19,17 @@ jobs:
 
     - name: Install Android SDK
       run: |
-        wget -q https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip -O cmdline.zip
-        unzip -q cmdline.zip -d $HOME/android-sdk/cmdline-tools
-        rm cmdline.zip
-        mv $HOME/android-sdk/cmdline-tools/cmdline-tools $HOME/android-sdk/cmdline-tools/latest
-        yes | $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
-        $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-28" "build-tools;28.0.3" "extras;android;m2repository" "extras;google;m2repository"
-        echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
-        echo "ANDROID_SDK_ROOT=$HOME/android-sdk" >> $GITHUB_ENV
+        wget -q https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip -O /tmp/cmdline.zip
+        mkdir -p $HOME/Android/Sdk/cmdline-tools
+        unzip -q /tmp/cmdline.zip -d $HOME/Android/Sdk/cmdline-tools
+        rm /tmp/cmdline.zip
+        # cmdline.zip extracts to cmdline-tools/ subfolder
+        mkdir -p $HOME/Android/Sdk/cmdline-tools/latest
+        cp -r $HOME/Android/Sdk/cmdline-tools/cmdline-tools/* $HOME/Android/Sdk/cmdline-tools/latest/
+        yes | $HOME/Android/Sdk/cmdline-tools/latest/bin/sdkmanager --licenses
+        $HOME/Android/Sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-28" "build-tools;28.0.3"
+        echo "ANDROID_HOME=$HOME/Android/Sdk" >> $GITHUB_ENV
+        echo "ANDROID_SDK_ROOT=$HOME/Android/Sdk" >> $GITHUB_ENV
 
     - name: Create local.properties
       run: echo "sdk.dir=$ANDROID_HOME" > app/local.properties
