@@ -16,13 +16,14 @@ jobs:
       uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
-        java-version: '11'
+        java-version: '17'
 
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
       with:
         api-level: 28
         build-tools: 28.0.3
+        skip-jdk-check: true
 
     - name: Create local.properties
       run: echo "sdk.dir=${{ steps.setup-android.outputs.android-sdk-path }}" > app/local.properties
