@@ -38,3 +38,17 @@ jobs:
       with:
         name: apk-debug
         path: app/build/outputs/apk/debug/app-debug.apk
+
+    - name: Notify n8n
+      if: always()
+      run: |
+        curl -X POST https://n8n.gohim.vip/webhook/flutter-apk-notification \
+          -H "Content-Type: application/json" \
+          -d '{
+            "app": "Buku Kenangan",
+            "tag": "${{ github.ref_name }}",
+            "repository": "gohimoey/buku-kenangan-android",
+            "release_url": "https://github.com/gohimoey/buku-kenangan-android/actions/runs/${{ github.run_id }}",
+            "event": "build_complete",
+            "status": "${{ job.status }}"
+          }'
