@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -21,15 +21,6 @@ jobs:
 
     - name: Change wrapper permissions
       run: chmod +x ./gradlew
-
-    - name: Setup Android SDK
-      uses: android-actions/setup-android@v3
-      with:
-        api-level: 33
-        build-tools: 33.0.2
-        ndk: 23.1.7779620
-        cmake: 3.22.1
-        java-version: '17'
 
     - name: Build Debug APK
       run: ./gradlew assembleDebug --no-daemon -x lint
