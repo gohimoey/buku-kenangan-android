@@ -23,12 +23,13 @@ jobs:
       run: chmod +x ./gradlew
 
     - name: Setup Android SDK
-      uses: android-actions/setup-android@v2
+      uses: android-actions/setup-android@v3
       with:
-        api-level: 28
-        build-tools: 28.0.3
+        api-level: 33
+        build-tools: 33.0.2
         ndk: 23.1.7779620
-        cmake: 3.18.1
+        cmake: 3.22.1
+        java-version: '17'
 
     - name: Build Debug APK
       run: ./gradlew assembleDebug --no-daemon -x lint
