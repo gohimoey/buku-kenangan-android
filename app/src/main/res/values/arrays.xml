@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="major_options">
+        <item>TKJ - Teknik Jaringan Komputer</item>
+        <item>TKR - Teknik Kendaraan Ringan</item>
+        <item>PBS - Pendidikan Bimbingan Konselor</item>
+    </string-array>
+
+    <string-array name="class_options">
+        <item>Kelas 11</item>
+        <item>Kelas 12</item>
+        <item>Kelas 13</item>
+    </string-array>
+</resources>

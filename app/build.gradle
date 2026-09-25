@@ -1,21 +1,39 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    namespace 'com.mastagohim.bukukenangan'
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.mastagohim.bukukenangan"
-        minSdkVersion 16
-        targetSdkVersion 28
+        minSdk 21
+        targetSdk 33
         versionCode 1
         versionName "1.0"
+        buildConfigField "String", "VERSION_NAME", '"1.0"'
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('../buku-kenangan-release.keystore')
+            storePassword 'buku123'
+            keyAlias 'buku-kenangan'
+            keyPassword 'buku123'
+        }
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled false  // TEMP: disable for crash test
+            shrinkResources false  // TEMP: disable for crash test
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
         debug {
             debuggable true
@@ -30,4 +48,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
 }

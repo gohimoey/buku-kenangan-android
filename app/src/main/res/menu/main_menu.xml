@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_menu">
+
+    <item
+        android:id="@+id/action_export"
+        android:title="Ekspor"
+        android:icon="@android:drawable/ic_menu_share"
+        android:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_import"
+        android:title="Impor"
+        android:icon="@android:drawable/ic_menu_save"
+        android:showAsAction="never" />
+</menu>

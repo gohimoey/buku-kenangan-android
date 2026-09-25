@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <item name="android:windowBackground">@color/background_dark</item>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/green_primary</item>
+        <item name="colorPrimaryVariant">@color/green_dark</item>
+        <item name="colorOnPrimary">@color/text_light</item>
+        <item name="colorSecondary">@color/green_accent</item>
+        <item name="colorOnSecondary">@color/text_light</item>
+        <item name="android:windowBackground">#E8F5E9</item>
+    </style>
+
+    <!-- Theme untuk ActionBar/Toolbar -->
+    <style name="AppTheme.Toolbar" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
         <item name="android:textColor">@color/text_light</item>
-        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <!-- Button Style -->
+    <style name="GreenButton" parent="Widget.AppCompat.Button">
+        <item name="android:backgroundTint">@color/green_primary</item>
+        <item name="android:textColor">@color/text_light</item>
     </style>
 </resources>

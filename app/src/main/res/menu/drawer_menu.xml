@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group>
+        <item
+            android:id="@+id/nav_home"
+            android:title="Beranda"
+            android:icon="@android:drawable/ic_menu_view" />
+
+        <item
+            android:id="@+id/nav_profile"
+            android:title="Profil SMK"
+            android:icon="@android:drawable/ic_menu_info_details" />
+
+        <item
+            android:id="@+id/nav_student_form"
+            android:title="Data Siswa"
+            android:icon="@android:drawable/ic_input_add" />
+    </group>
+
+    <group android:title="Jurusan">
+        <item
+            android:id="@+id/nav_tkj"
+            android:title="TKJ - Kelas 11,12,13"
+            android:icon="@android:drawable/ic_menu_compass" />
+
+        <item
+            android:id="@+id/nav_tkr"
+            android:title="TKR - Kelas 11,12,13"
+            android:icon="@android:drawable/ic_menu_compass" />
+
+        <item
+            android:id="@+id/nav_pbs"
+            android:title="PBS - Kelas 11,12,13"
+            android:icon="@android:drawable/ic_menu_compass" />
+    </group>
+
+    <group>
+        <item
+            android:id="@+id/nav_entries"
+            android:title="Entri"
+            android:icon="@android:drawable/ic_menu_save" />
+
+        <item
+            android:id="@+id/nav_add"
+            android:title="Tambah"
+            android:icon="@android:drawable/ic_input_add" />
+
+        <item
+            android:id="@+id/nav_share"
+            android:title="Bagikan"
+            android:icon="@android:drawable/ic_menu_share" />
+
+        <item
+            android:id="@+id/nav_settings"
+            android:title="Pengaturan"
+            android:icon="@android:drawable/ic_menu_preferences" />
+
+        <item
+            android:id="@+id/nav_exit"
+            android:title="Keluar"
+            android:icon="@android:drawable/ic_menu_close_clear_cancel" />
+    </group>
+
+</menu>

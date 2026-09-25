@@ -1,0 +1,50 @@
+{
+  "name": "Flutter APK Notification",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "flutter-apk-notification",
+        "options": {}
+      },
+      "id": "webhook-flutter-apk",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "chatId": null,
+        "text": "📱 <b>APK Build Complete</b>\n\nApp: {{$json.app}}\nTag: {{$json.tag}}\nEvent: {{$json.event}}\nRepository: {{$json.repository}}\nStatus: ✅ Success\n\nDownload: {{$json.release_url}}"
+      },
+      "id": "telegram-send",
+      "name": "Telegram Send Message",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [200, 0],
+      "credentials": {
+        "telegramApi": {
+          "id": null,
+          "name": "Telegram API"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Telegram Send Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  }
+}

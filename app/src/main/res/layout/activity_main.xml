@@ -1,59 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/background_dark">
+    android:background="#E8F5E9"
+    android:padding="16dp">
 
-    <!-- Progress bar -->
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#2E7D32"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:title="Buku Kenangan" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:progressDrawable="@drawable/progress_drawable"
-        android:indeterminate="false"
-        android:max="100"
-        android:visibility="gone"
-        android:layout_margin="2dp" />
-
-    <!-- Error view -->
-    <LinearLayout
-        android:id="@+id/errorView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
         android:gravity="center"
-        android:padding="24dp"
-        android:background="@color/background_dark"
-        android:visibility="gone">
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:layout_marginBottom="16dp"
+        android:elevation="4dp">
 
         <TextView
-            android:id="@+id/errorText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Koneksi gagal. Ketuk untuk mencoba lagi."
-            android:textColor="@color/text_light"
-            android:textSize="16sp"
+            android:text="SMK Ihyaul Ulum"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:gravity="center" />
+            android:textColor="#2E7D32"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sekolah Menengah Kejuruan"
+            android:textSize="16sp"
+            android:textColor="#757575"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jl. Raya No. 123&#10;Kecamatan Majenang"
+            android:textSize="16sp"
+            android:textColor="#616161"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telp: (022) 12345678"
+            android:textSize="14sp"
+            android:textColor="#616161" />
 
     </LinearLayout>
 
-    <!-- WebView container -->
-    <LinearLayout
-        android:id="@+id/webViewContainer"
+    <!-- MENU INPUT -->
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/background_dark"
-        android:visibility="gone">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp">
 
-        <WebView
-            android:id="@+id/webview"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Input Data"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#2E7D32"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btn_input_siswa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Input Data Siswa"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="#2E7D32" />
+
+            <Button
+                android:id="@+id/btn_input_guru"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Input Data Guru"
+                android:backgroundTint="#4CAF50" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- MENU LIST DATA -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="List Data"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#2E7D32"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btn_list_siswa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="List Data Siswa"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="#4CAF50" />
+
+            <Button
+                android:id="@+id/btn_list_guru"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="List Data Guru"
+                android:backgroundTint="#81C784" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- OTHER OPTIONS -->
+    <Button
+        android:id="@+id/btn_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lihat Profil Lengkap"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#795548" />
+
+    <Button
+        android:id="@+id/btn_entries"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lihat Entri Kenangan"
+        android:backgroundTint="#607D8B" />
+
+    <Button
+        android:id="@+id/btn_add_entry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tambah Entri Baru"
+        android:backgroundTint="#1976D2" />
+
+    <Button
+        android:id="@+id/btn_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:backgroundTint="#9E9E9E"
+        android:layout_marginTop="24dp" />
 
 </LinearLayout>
