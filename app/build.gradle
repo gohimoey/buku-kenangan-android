@@ -20,11 +20,13 @@ android {
     }
 
     signingConfigs {
-        release {
-            storeFile file('../buku-kenangan-release.keystore')
-            storePassword 'buku123'
-            keyAlias 'buku-kenangan'
-            keyPassword 'buku123'
+        if (file('../buku-kenangan-release.keystore').exists()) {
+            release {
+                storeFile file('../buku-kenangan-release.keystore')
+                storePassword System.getenv("KEYSTORE_PASSWORD") ?: 'buku123'
+                keyAlias 'buku-kenangan'
+                keyPassword System.getenv("KEY_PASSWORD") ?: 'buku123'
+            }
         }
     }
 
@@ -33,7 +35,7 @@ android {
             minifyEnabled false  // TEMP: disable for crash test
             shrinkResources false  // TEMP: disable for crash test
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            signingConfig signingConfigs.find { it.name == 'release' } ?: signingConfigs.debug
         }
         debug {
             debuggable true
